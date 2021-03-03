@@ -1,0 +1,32 @@
+.footer {
+    flex-shrink: 0;
+    background-color:rgb(246, 247, 239);
+  }
+
+  .horizontal{
+      border-top: 2px solid rgb(255, 102, 0);
+  }
+
+  #foot-title{
+      margin-top: 15px;
+
+  }
+  #foot-title a,
+  #foot-title a:hover{
+      color: rgb(0, 0, 0);
+  }
+ #footer-links{
+     margin-top: 5px;
+ }
+  #footer-links a{
+      color:rgb(0, 0, 0);
+      font-size: 13.3px;
+  }
+  #footer-links .footer-links-divider{
+       color: rgb(130, 130, 130);
+        margin: 0 5px;
+        font-size: 13.3px;
+  }
+  #footer-search{
+      margin: 10px auto;
+  }

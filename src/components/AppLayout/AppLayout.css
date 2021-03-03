@@ -1,0 +1,18 @@
+.background{
+  background-color: white;
+  padding: 10px 100px;
+}
+.App {
+   /* background-color:rgb(246, 247, 239); */
+    scroll-behavior: smooth;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* overflow-x: hidden; */
+    flex-shrink: 0;
+  }
+  
+.content {
+    flex: 1 0 auto;
+    /* margin-bottom:50px; */
+  }

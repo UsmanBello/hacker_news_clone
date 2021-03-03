@@ -24,7 +24,6 @@ function getEachArticle(articleIds, dispatchFunction, lastIndex){
         dispatchFunction(getArticles(data, lastIndex))
       }))
       .catch(err=>console.log(err))
-   
       return data
 }
 

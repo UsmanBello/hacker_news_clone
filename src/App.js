@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import { configureStore } from "./store";
 import { BrowserRouter as Router } from "react-router-dom";
-import NewStoriesList from './components/NewStoriesList//NewStoriesList'
+import Main from "./containers/Main"
 
 const store=configureStore()
 
@@ -10,7 +10,7 @@ function App() {
     <Provider store={store}>
       <Router>
         <div className="App">
-          <NewStoriesList/>
+          <Main/>
         </div>
       </Router>
     </Provider>
