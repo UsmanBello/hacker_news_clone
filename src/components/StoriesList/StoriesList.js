@@ -7,8 +7,7 @@ const StoriesList=({lastIndex, stories})=>{
     const currentIndex=(last, idx)=>{
         return (last-29) + (idx+1)
     }
-
-    console.log(stories)
+    
   return (
     <>
      {
