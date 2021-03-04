@@ -1,4 +1,3 @@
-import React,{ useState, useEffect } from 'react';
 import StoryItem from "../StoryItem/StoryItem";
 
 import './StoriesList.css'

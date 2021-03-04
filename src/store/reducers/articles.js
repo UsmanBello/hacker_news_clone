@@ -4,10 +4,10 @@ import { GET_ARTICLES } from "../actionTypes";
 const DEFAULT_STATE = {
   loading: true,
   articles:[],
-  currentLastIndex: 0,
+  ccurrentArticles:[]
 };
 
-export default (state = DEFAULT_STATE, action) => {
+export default  (state = DEFAULT_STATE, action) => {
   const { type, payload, lastIndex } = action;
   switch (type) {
     case GET_ARTICLES:
@@ -21,3 +21,4 @@ export default (state = DEFAULT_STATE, action) => {
       return state;
   }
 };
+

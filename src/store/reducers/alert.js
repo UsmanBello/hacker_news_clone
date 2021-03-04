@@ -1,7 +1,6 @@
 import { ADD_ALERT, REMOVE_ALERT } from "../actionTypes";
 
 const initialState = [];
-//This is the error reducer function
 export default (state = initialState, action) => {
   const { type, payload } = action;
 

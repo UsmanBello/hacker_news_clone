@@ -1,4 +1,5 @@
 import React,{ useState, useEffect } from 'react';
+import LoadingComponent from "../../components/LoadingComponent/LoadingComponent"
 import StoriesList from "../../components/StoriesList/StoriesList";
 import MoreButton from "../../components/MoreButton/MoreButton";
 import {  getTopArticles } from "../../store/actions/articles";
@@ -12,7 +13,6 @@ const TopStories=({
     currentLastIndex, 
     getTopArticles})=>{
     
-    //initial 30 items
     const [lastIndex, setLastIndex]= useState(29)
 
     useEffect(()=>{
@@ -24,9 +24,8 @@ const TopStories=({
        setLastIndex(lastIndex+30)
     }
 
-  
 
-  return (loading ? <div>Loading</div>:
+  return (loading ? <LoadingComponent/>:
     <div id='Page-layout'>
         <StoriesList lastIndex={currentLastIndex} stories={stories}/>
      <MoreButton getMore={handleMore}/>

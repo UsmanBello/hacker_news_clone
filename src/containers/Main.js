@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import AppLayout from "../components/AppLayout/AppLayout"
 import TopStories from "./TopStories/TopStories";

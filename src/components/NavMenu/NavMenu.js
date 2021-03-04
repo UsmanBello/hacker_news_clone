@@ -1,5 +1,4 @@
-import React,{ useState, useEffect } from 'react';
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './NavMenu.css'
 
 const NavMenu=()=>{
@@ -7,44 +6,44 @@ const NavMenu=()=>{
    return (
     <nav className="navbar">
         <div  id='nav-header'>
-          <Link to="/" className="navbar-brand nav-text" id='brand-icon-link'>
+          <NavLink to="/" className="navbar-brand nav-text" id='brand-icon-link'>
             <span id='brand-icon'> Y</span>
-          </Link>
-          <Link to="/" className="navbar-brand nav-text">
+          </NavLink>
+          <NavLink to="/" className="navbar-brand nav-text">
            <span id='brand-name'><strong>Hacker News</strong></span> 
-          </Link>
-          <Link to="/new-stories" className="navbar-link nav-text">
+          </NavLink>
+          <NavLink to="/new-stories" activeStyle={{ color: 'white' }} className="navbar-link nav-text">
             <span className='nav-link-text'>new </span>
-          </Link>
+          </NavLink>
           <span className="nav-lnk-divider"> | </span>
-          <Link to="/uncreated-routes" className="navbar-link nav-text" id='brand-icon-link'>
+          <NavLink to="/uncreated-routes"  className="navbar-link nav-text" id='brand-icon-link'>
             <span className='nav-link-text'> past</span>
-          </Link>
+          </NavLink>
           <span className="nav-lnk-divider"> | </span>
-          <Link to="/uncreated-routes" className="navbar-link nav-text" id='brand-icon-link'>
+          <NavLink to="/uncreated-routes"  className="navbar-link nav-text" id='brand-icon-link'>
             <span className='nav-link-text'> comments</span>
-          </Link>
+          </NavLink>
           <span className="nav-lnk-divider"> | </span>
-          <Link to="/uncreated-routes" className="navbar-link nav-text" id='brand-icon-link'>
+          <NavLink to="/uncreated-routes" className="navbar-link nav-text" id='brand-icon-link'>
             <span className='nav-link-text'> ask</span>
-          </Link>
+          </NavLink>
           <span className="nav-lnk-divider"> | </span>
-          <Link to="/uncreated-routes" className="navbar-link nav-text" id='brand-icon-link'>
+          <NavLink to="/uncreated-routes"  className="navbar-link nav-text" id='brand-icon-link'>
             <span className='nav-link-text'> show</span>
-          </Link>
+          </NavLink>
           <span className="nav-lnk-divider"> | </span>
-          <Link to="/uncreated-routes" className="navbar-link nav-text" id='brand-icon-link'>
+          <NavLink to="/uncreated-routes"  className="navbar-link nav-text" id='brand-icon-link'>
             <span className='nav-link-text'>jobs</span>
-          </Link>
+          </NavLink>
           <span className="nav-lnk-divider"> | </span>
-          <Link to="/uncreated-routes" className="navbar-link nav-text" id='brand-icon-link'>
+          <NavLink to="/uncreated-routes"  className="navbar-link nav-text" id='brand-icon-link'>
             <span className='nav-link-text'>submit</span>
-          </Link>
+          </NavLink>
         </div>
         <div id='nav-auth-link'>
-        <Link to="/uncreated-routes" className="navbar-link nav-text" >
+        <NavLink to="/uncreated-routes"  className="navbar-link nav-text" >
             <span className='nav-link-text'>login</span>
-          </Link>
+          </NavLink>
           </div>
     </nav>
    )

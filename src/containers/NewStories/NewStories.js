@@ -1,4 +1,5 @@
 import React,{ useState, useEffect } from 'react';
+import LoadingComponent from "../../components/LoadingComponent/LoadingComponent"
 import StoriesList from "../../components/StoriesList/StoriesList";
 import MoreButton from "../../components/MoreButton/MoreButton";
 import {  getNewArticles } from "../../store/actions/articles";
@@ -26,7 +27,7 @@ const NewStories=({
 
   
 
-  return (loading ? <div>Loading</div>:
+  return (loading ? <LoadingComponent/>:
     <div id='Page-layout'>
         <StoriesList lastIndex={currentLastIndex} stories={stories}/>
      <MoreButton getMore={handleMore}/>
@@ -42,4 +43,4 @@ const mapStateToProps=state=>{
     }
 }
 
-export default connect(mapStateToProps,{getNewArticles})(NewStories);
+export default connect(mapStateToProps,{ getNewArticles })(NewStories);

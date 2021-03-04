@@ -1,12 +1,8 @@
 import { GET_ARTICLES, GET_NEW_STORIES, GET_TOP_STORIES } from "../actionTypes";
 import axios from 'axios';
-import axiosInstance from "../../services/api"
-import {currentArticles} from "../../services/helper"
-import { configureStore } from "../index"
-
-const allTopStories= configureStore().getState().stories.topStories
-const allNewStories= configureStore().getState().stories.newStories
-
+import axiosInstance from "../../services/api";
+import {currentArticles} from "../../services/helper";
+import setAlert from "./alert"
 
 export function getNew(payload) {
   return {
@@ -31,10 +27,7 @@ export function getArticles(payload, lastIndex) {
   };
 }
 
-
-
  function getArticlesByIds(articleIds,dispatch, lastIndex){
-    console.log('here')
   var data
   let promises =  articleIds.map(id=>{return axiosInstance.get(`/item/${id}.json?print=pretty`)})
       axios.all([...promises])
@@ -42,7 +35,8 @@ export function getArticles(payload, lastIndex) {
          data= responses.map(res=>{ return res.data})
         dispatch(getArticles(data, lastIndex))
       }))
-      .catch(err=>console.log(err))
+      .catch(err=>
+        dispatch(setAlert(err.message, 'warning')))
       return data
 }
 
@@ -56,7 +50,7 @@ export function getNewArticles(lastIndex) {
         getArticlesByIds( ids,dispatch, lastIndex )
       })
       .catch((err) => {
-        console.log(err);
+        dispatch(setAlert(err.message, 'warning'));
       });
 }
 }
@@ -66,14 +60,12 @@ export function getTopArticles(lastIndex) {
     return axiosInstance
       .get("/topstories.json")
       .then((res) => {
-        // console.log(res.data)
         let ids= currentArticles(res.data, lastIndex)
-        console.log(ids)
         dispatch(getTop(res.data))
         getArticlesByIds( ids, dispatch, lastIndex )
       })
       .catch((err) => {
-        console.log(err);
+        dispatch(setAlert(err.message, 'warning'));
       });
 }
 }

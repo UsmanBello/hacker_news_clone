@@ -1,9 +1,8 @@
-import React,{ useState, useEffect } from 'react';
-import FooterSearch from '../FooterSearch/FooterSearch';
+import React,{ useState } from 'react';
 
 import './FooterSearch.css'
 
-const Footer=()=>{
+const FooterSearch=()=>{
     const [searchString, setSearchString]= useState('')
 
 
@@ -33,4 +32,4 @@ const Footer=()=>{
 }
 
 
-export default Footer
+export default FooterSearch
