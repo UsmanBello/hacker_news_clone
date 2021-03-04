@@ -11,8 +11,9 @@ import OtherRoutes from "./OtherRoutes/OtherRoutes";
 
 
 const Main = ()=>{
-  
-  return ( 
+
+
+  return (  
    <AppLayout>
      
         <Switch>
@@ -40,6 +41,7 @@ const Main = ()=>{
             />
             
         </Switch>
+
       </AppLayout>
   );
 };

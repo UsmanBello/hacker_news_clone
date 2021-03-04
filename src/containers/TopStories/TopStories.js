@@ -1,20 +1,24 @@
 import React,{ useState, useEffect } from 'react';
 import StoriesList from "../../components/StoriesList/StoriesList";
 import MoreButton from "../../components/MoreButton/MoreButton";
-import { getNewStories } from "../../store/actions/stories";
-import { getNewArticles } from "../../store/actions/articles";
+import {  getTopArticles } from "../../store/actions/articles";
 import { connect } from 'react-redux';
 
 import './TopStories.css'
 
-const TopStories=({getNewStories, getNewArticles, loading, newStories, currentLastIndex})=>{
+const TopStories=({
+    loading,
+    stories, 
+    currentLastIndex, 
+    getTopArticles})=>{
     
     //initial 30 items
     const [lastIndex, setLastIndex]= useState(29)
-    
+
     useEffect(()=>{
-        getNewArticles(lastIndex)
-    },[lastIndex])
+        getTopArticles(lastIndex)
+   },[lastIndex])
+ 
 
     const handleMore=()=>{
        setLastIndex(lastIndex+30)
@@ -22,9 +26,9 @@ const TopStories=({getNewStories, getNewArticles, loading, newStories, currentLa
 
   
 
-  return (loading   ? <div>Loading</div>:
+  return (loading ? <div>Loading</div>:
     <div id='Page-layout'>
-        <StoriesList lastIndex={currentLastIndex} stories={newStories}/>
+        <StoriesList lastIndex={currentLastIndex} stories={stories}/>
      <MoreButton getMore={handleMore}/>
     </div>
   );
@@ -32,10 +36,10 @@ const TopStories=({getNewStories, getNewArticles, loading, newStories, currentLa
 
 const mapStateToProps=state=>{
     return {
-        newStories: state.articles.articles,
+        stories: state.articles.articles,
         loading: state.articles.loading,
         currentLastIndex: state.articles.currentLastIndex,
     }
 }
 
-export default connect(mapStateToProps,{getNewStories, getNewArticles})(TopStories);
+export default connect(mapStateToProps,{getTopArticles})(TopStories);

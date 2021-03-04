@@ -1,5 +1,5 @@
 import React,{ useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import StoryItem from "../StoryItem/StoryItem";
 
 import './StoriesList.css'
 
@@ -9,14 +9,12 @@ const StoriesList=({lastIndex, stories})=>{
         return (last-29) + (idx+1)
     }
 
+    console.log(stories)
   return (
     <>
      {
          stories.map((story,index)=>{
-             return <div key={index}>
-                  <span className={currentIndex(lastIndex, index) < 10 ? 'padding-single-digit': ''}>
-                      {currentIndex(lastIndex, index)}.</span>
-                  - {story.title===null? " ": story.title}</div>
+             return<StoryItem key={index}  story={story} index={currentIndex(lastIndex, index)}/> 
          })
      }
     </>

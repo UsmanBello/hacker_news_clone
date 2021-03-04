@@ -1,9 +1,11 @@
+//STORE FOR  STORIES IDS
 import { GET_NEW_STORIES } from "../actionTypes";
 import { GET_TOP_STORIES } from "../actionTypes";
 
 
 const DEFAULT_STATE = {
-  loading: true,
+  loadingTopStories: true,
+  loadingNewStories: true,
   topStories:[],
   newStories: [],
 };
@@ -13,12 +15,12 @@ export default (state = DEFAULT_STATE, action) => {
   switch (type) {
     case GET_NEW_STORIES:
       return {
-        loading: false,
+        loadingNewStories: false,
         newStories: payload,
       };
       case GET_TOP_STORIES:
         return {
-          loading: false,
+          loadingTopStories: false,
           countries: payload,
         };
     default:
